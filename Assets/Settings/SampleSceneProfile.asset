@@ -13,40 +13,33 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
-    min: 0
+    m_Value: 0.045
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
-    min: 0
-    max: 1
   clamp:
     m_OverrideState: 0
     m_Value: 65472
-    min: 0
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
-    min: 0
 --- !u!114 &-7011558710299706105
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -59,27 +52,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   color:
     m_OverrideState: 0
     m_Value: {r: 0, g: 0, b: 0, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
     m_Value: 0.25
-    min: 0
-    max: 1
   smoothness:
     m_OverrideState: 1
     m_Value: 0.4
-    min: 0.01
-    max: 1
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -103,6 +88,8 @@ MonoBehaviour:
   - {fileID: 4003045197303246781}
   - {fileID: 967291572828633334}
   - {fileID: 8005431184771482974}
+  - {fileID: 6482976311309341416}
+  - {fileID: 1799480212651049880}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -116,7 +103,6 @@ MonoBehaviour:
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   mode:
     m_OverrideState: 1
     m_Value: 2
@@ -132,16 +118,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d146ea0b8c76d47ba27a63f2f8d2e8, type: 3}
   m_Name: GradientFog
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   gradientTexture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: 2a5c875aa1a58fe43bfe1796d9479779, type: 3}
   intensity:
     m_OverrideState: 1
     m_Value: 0.38
-    min: 0
-    max: 1
+--- !u!114 &1799480212651049880
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702bcde1762b6fd439c6021eef0e4b2f, type: 3}
+  m_Name: StarGlow
+  m_EditorClassIdentifier: 
+  active: 0
+  Threshold:
+    m_OverrideState: 1
+    m_Value: 0.08
+  Intensity:
+    m_OverrideState: 1
+    m_Value: 0.01
+  Attenuation:
+    m_OverrideState: 1
+    m_Value: 0.96
+  Angle:
+    m_OverrideState: 1
+    m_Value: 90
+  StreakCount:
+    m_OverrideState: 1
+    m_Value: 1
+  Iteration:
+    m_OverrideState: 1
+    m_Value: 5
+  Divide:
+    m_OverrideState: 1
+    m_Value: 1
 --- !u!114 &4003045197303246781
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -154,14 +171,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c592f8609bbaa404b8c91d85a7293970, type: 3}
   m_Name: Flare
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   flareColor:
     m_OverrideState: 1
     m_Value: {r: 1, g: 0.8350202, b: 0.5518868, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
   flarePosition:
     m_OverrideState: 1
     m_Value: {x: -5.89, y: 5.37}
@@ -171,9 +184,6 @@ MonoBehaviour:
   paraColor:
     m_OverrideState: 1
     m_Value: {r: 0.07266821, g: 0.099699356, b: 0.21698111, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
   paraPosition:
     m_OverrideState: 1
     m_Value: {x: 1.36, y: -1.44}
@@ -193,15 +203,40 @@ MonoBehaviour:
   m_Name: Diffusion
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 2.5
+    m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.6
-    min: 0
-    max: 1
+    m_Value: 0.04
+--- !u!114 &6482976311309341416
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47dcf55aff9240159bb852ed4393989b, type: 3}
+  m_Name: SimpleRaymarch
+  m_EditorClassIdentifier: 
+  active: 0
+  maxIterations:
+    m_OverrideState: 1
+    m_Value: 64
+  maxDistance:
+    m_OverrideState: 1
+    m_Value: 100
+  minDistance:
+    m_OverrideState: 1
+    m_Value: 0.01
+  spherePos:
+    m_OverrideState: 1
+    m_Value: {x: 1.187, y: 3.45, z: 0}
+  sphereRadius:
+    m_OverrideState: 1
+    m_Value: 0.51
 --- !u!114 &8005431184771482974
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -214,8 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f3adaab4db4f8f9fbc58713914aa1b, type: 3}
   m_Name: LightShaft
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   maxIterations:
     m_OverrideState: 1
     m_Value: 64
@@ -227,6 +261,4 @@ MonoBehaviour:
     m_Value: 0.4
   intensity:
     m_OverrideState: 1
-    m_Value: 0.5
-    min: 0
-    max: 1
+    m_Value: 0.158
